@@ -1,0 +1,3 @@
+vhdtdtfi -prj CPU_FINAL -o "E:/University/Semster 4/Computer organization/Project/CPU_FINAL/ControlUnit.tfi" -module ControlUnit -template D:/xilinix/14.5/ISE_DS/ISE//data/tfi.tft -deleteonerror -lib work ControlUnit.vhd 
+vhdtdtfi -lib work ControlUnit.vhd -prj CPU_FINAL -o ControlUnit.spl -module ControlUnit -template D:/xilinix/14.5/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7 ControlUnit.spl {E:/University/Semster 4/Computer organization/Project/CPU_FINAL/ControlUnit.sym} 

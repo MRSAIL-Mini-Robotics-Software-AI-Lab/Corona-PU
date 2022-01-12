@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/ALU.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/ControlUnit.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/DataPath.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/FPU_FUNCTIONS.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/ROM.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/Ram.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/VGA_Control.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/VRAM.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/computer.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/cpu.vhd&quot; into library work</arg>
+</msg>
+
+</messages>
+

@@ -1,0 +1,25 @@
+
+
+
+// Instantiate the module
+ControlUnit instance_name (
+    .clock(clock), 
+    .reset(reset), 
+    .IR_Load(IR_Load), 
+    .MAR_Load(MAR_Load), 
+    .IR(IR), 
+    .MAR_AorB(MAR_AorB), 
+    .A_Load(A_Load), 
+    .B_Load(B_Load), 
+    .write(write), 
+    .ALU_Sel(ALU_Sel), 
+    .CCR_Result(CCR_Result), 
+    .CCR_Load(CCR_Load), 
+    .ROM_tick(ROM_tick), 
+    .read_address_ROM(read_address_ROM), 
+    .to_memory_sel(to_memory_sel), 
+    .Bus2_sel(Bus2_sel), 
+    .IFCOND_sel(IFCOND_sel)
+    );
+
+

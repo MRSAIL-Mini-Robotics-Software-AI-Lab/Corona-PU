@@ -1,0 +1,191 @@
+Release 14.5 - xst P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Reading design: computer.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "computer.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "computer"
+Output Format                      : NGC
+Target Device                      : xc7a100t-3-csg324
+
+---- Source Options
+Top Module Name                    : computer
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\FPU_FUNCTIONS.vhd" into library work
+Parsing package <FPU_FUNCTIONS>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ALU.vhd" into library work
+Parsing entity <ALU>.
+Parsing architecture <Behavioral> of entity <alu>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\DataPath.vhd" into library work
+Parsing entity <DataPath>.
+Parsing architecture <Behavioral> of entity <datapath>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ControlUnit.vhd" into library work
+Parsing entity <ControlUnit>.
+Parsing architecture <Behavioral> of entity <controlunit>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\VRAM.vhd" into library work
+Parsing entity <VRAM>.
+Parsing architecture <Behavioral> of entity <vram>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\VGA_Control.vhd" into library work
+Parsing entity <VGA_Control>.
+Parsing architecture <behavior> of entity <vga_control>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ROM.vhd" into library work
+Parsing entity <ROM>.
+Parsing architecture <Behavioral> of entity <rom>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\Ram.vhd" into library work
+Parsing entity <Ram>.
+Parsing architecture <Behavioral> of entity <ram>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\cpu.vhd" into library work
+Parsing entity <cpu>.
+Parsing architecture <Behavioral> of entity <cpu>.
+Parsing VHDL file "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\computer.vhd" into library work
+Parsing entity <computer>.
+Parsing architecture <Behavioral> of entity <computer>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <computer> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <cpu> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <DataPath> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\DataPath.vhd" Line 82: ir_load should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\DataPath.vhd" Line 83: from_rom should be on the sensitivity list of the process
+
+Elaborating entity <ALU> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ALU.vhd" Line 56: tempres should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ALU.vhd" Line 67: tempres should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ALU.vhd" Line 100: prevrand should be on the sensitivity list of the process
+
+Elaborating entity <ControlUnit> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ControlUnit.vhd" Line 105: current_state should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ControlUnit.vhd" Line 254: ifcond_sel should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ControlUnit.vhd" Line 264: ifcond_sel should be on the sensitivity list of the process
+INFO:HDLCompiler:679 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ControlUnit.vhd" Line 274. Case statement is complete. others clause is never selected
+ERROR:HDLCompiler:1401 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ControlUnit.vhd" Line 103: Signal next_state[3] in unit ControlUnit is connected to following multiple drivers:
+Driver 0: output signal next_state[3] of instance Latch (next_state[3]).
+Driver 1: output signal next_state[3] of instance Latch (_i000047).
+Driver 0: output signal next_state[2] of instance Latch (next_state[2]).
+Driver 1: output signal next_state[2] of instance Latch (_i000050).
+Driver 0: output signal next_state[1] of instance Latch (next_state[1]).
+Driver 1: output signal next_state[1] of instance Latch (_i000053).
+Driver 0: output signal next_state[0] of instance Latch (next_state[0]).
+Driver 1: output signal next_state[0] of instance Latch (_i000056).
+Netlist cpu(Behavioral) remains a blackbox, due to errors in its contents
+
+Elaborating entity <ROM> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ROM.vhd" Line 39: read_address should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ROM.vhd" Line 40: address should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ROM.vhd" Line 41: count should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\ROM.vhd" Line 42: count should be on the sensitivity list of the process
+
+Elaborating entity <Ram> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\CPU_FINAL\Ram.vhd" Line 53: address should be on the sensitivity list of the process
+
+Elaborating entity <VGA_Control> (architecture <behavior>) with generics from library <work>.
+WARNING:HDLCompiler:446 - "./standard.vhd" Line 71: Function call NOW ignored
+
+Elaborating entity <VRAM> (architecture <Behavioral>) from library <work>.
+--> 
+
+Total memory usage is 4504388 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :   14 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

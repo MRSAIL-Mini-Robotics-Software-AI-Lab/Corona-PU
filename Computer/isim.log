@@ -1,0 +1,19 @@
+ISim log file
+Running: D:\Work\Programming\Projects\Computer Architecture Project\CPU 8\CPU_FINAL_2\Bemo_Comp\computer_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/Bemo_Comp/computer_tb_isim_beh.wdb 
+ISim P.58f (signature 0x7708f090)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /computer_tb/micrococontroller_unit/ : Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+at 0 ps, Instance /computer_tb/micrococontroller_unit/ : Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+at 0 ps, Instance /computer_tb/micrococontroller_unit/RAM_u/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /computer_tb/micrococontroller_unit/VRAM1_u/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /computer_tb/micrococontroller_unit/VRAM1_u/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /computer_tb/micrococontroller_unit/VRAM2_u/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /computer_tb/micrococontroller_unit/VRAM2_u/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps, Instance /computer_tb/micrococontroller_unit/ : Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+at 0 ps, Instance /computer_tb/micrococontroller_unit/ : Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated

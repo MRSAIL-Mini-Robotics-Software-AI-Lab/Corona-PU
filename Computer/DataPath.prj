@@ -1,0 +1,3 @@
+vhdl work "FPU_FUNCTIONS.vhd"
+vhdl work "ALU.vhd"
+vhdl work "DataPath.vhd"

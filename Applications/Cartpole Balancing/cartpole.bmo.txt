@@ -1,0 +1,580 @@
+@ Declaring initial random number generator with an initial seed
+fvar max_score = 0.0 ;
+ivar rand_num_1 = rand 16234 ;
+ivar rand_num_2 = rand rand_num_1 ;
+ivar rand_num_3 = rand rand_num_2 ;
+ivar rand_num_4 = rand rand_num_3 ;
+ivar rand_num_5 = rand rand_num_4 ;
+
+ivar rand_num_1_t = rand_num_1 % 1000 ;
+ivar rand_num_2_t = rand_num_2 % 1000 ;
+ivar rand_num_3_t = rand_num_3 % 1000 ;
+ivar rand_num_4_t = rand_num_4 % 1000 ;
+ivar rand_num_5_t = rand_num_5 % 1000 ;
+fint rand_num_1_t ;
+fint rand_num_2_t ;
+fint rand_num_3_t ;
+fint rand_num_4_t ;
+fint rand_num_5_t ;
+fvar r1 = rand_num_1_t / 100.0 ;
+fvar r2 = rand_num_2_t / 100.0 ;
+fvar r3 = rand_num_3_t / 100.0 ;
+fvar r4 = rand_num_4_t / 100.0 ;
+fvar r5 = rand_num_5_t / 100.0 ;
+
+@ Declaring Global Variables
+fvar gravity = 9.8 ;
+fvar masscart = 1.0 ;
+fvar masspole = 0.1 ;
+fvar total_mass = masspole + masscart ;
+fvar length = 0.5 ;
+fvar polemass_length = masspole * length ;
+fvar force_mag = 10.0 ;
+fvar tau = 0.02 ;
+fvar pi = 22.0 / 7.0 ;
+fvar theta_threshold_radians = 12.0 * pi ;
+theta_threshold_radians = theta_threshold_radians / 180.0 ;
+fvar x_threshold = 2.4 ;
+fvar highTheta = theta_threshold_radians * 2.0 ;
+fvar highX =  x_threshold * 2.0 ;
+bvar implicit = 1 ;
+
+@ Declaring in loop variables
+fvar x = 0.0 ;
+fvar x_dot = 0.0 ;
+fvar theta = 0.0 ;
+fvar theta_dot = 0.0 ;
+fvar costheta = 0.0 ;
+fvar sintheta = 0.0 ;
+fvar force = 0.0 ;
+fvar action = 0.0 ;
+bvar actionCond1 = 1 ;
+bvar actionCond2 = 1 ;
+bvar actionCond = 1 ;
+fvar temp1 = 0.0 ;
+fvar temp2 = 0.0 ;
+fvar temp3 = 0.0 ;
+fvar temp4 = 0.0 ;
+fvar temp5 = 0.0 ;
+fvar temp = 0.0 ;
+fvar thetaacc1 = 0.0 ;
+fvar thetaacc2 = 0.0 ;
+fvar thetaaccNum = 0.0 ;
+fvar thetaacc3 = 0.0 ;
+fvar thetaacc4 = 0.0 ;
+fvar thetaacc5 = 0.0 ;
+fvar thetaacc6 = 0.0 ;
+fvar thetaaccDen = 0.0 ;
+fvar thetaacc = 0.0 ;
+fvar xacc1 = 0.0 ;
+fvar xacc2 = 0.0 ;
+fvar xacc3 = 0.0 ;
+fvar xacc  = 0.0 ;
+fvar tauAcc = 0.0 ;
+fvar tauXdot = 0.0 ;
+fvar tauThetaAcc = 0.0 ;
+fvar tauThetaDot = 0.0 ;
+fvar xp = 0.0 ;
+fvar x_dotp = 0.0 ;
+fvar thetap = 0.0 ;
+fvar theta_dotp = 0.0 ;
+fvar negX_threshold = 0.0 ;
+bvar d1 = 0 ;
+bvar d2 = 0 ;
+fvar negTheta_threshold = 0.0 ;
+bvar d3 = 0 ;
+bvar d4 = 0 ;
+bvar d12 = 0 ;
+bvar d34 = 0 ;
+
+fvar policy_0 = 10.0 ;
+fvar policy_1 = 0.0 ;
+fvar policy_2 = 0.0 ;
+fvar policy_3 = 0.0 ;
+fvar policy_4 = 0.0 ;
+fvar x_start = 0.0 ;
+fvar x_dot_start = 0.0 ;
+fvar theta_start = 0.0 ;
+fvar theta_dot_start = 0.0 ;
+fvar action_0 = 0.0 ;
+fvar action_1 = 0.0 ;
+fvar action_2 = 0.0 ;
+fvar action_3 = 0.0 ;
+fvar action_temp_1 = 0.0 ;
+fvar action_temp_2 = 0.0 ;
+
+fvar score = 0.0 ;
+fvar counter1 = 0.0 ;
+fvar counter2 = 0.0 ;
+bvar done = 0 ;
+bvar w1_1 = 0 ;
+bvar w1_2 = 0 ;
+bvar w1 = 1 ;
+bvar w2_1 = 0 ;
+bvar w2_2 = 0 ;
+bvar w2 = 1 ;
+bvar temp_cond_2 = 0 ;
+while  w1  {
+  score = 0.0 ;
+  counter2 = 0.0 ;
+  done = 0 ;
+  w2 = 1 ;
+
+  @ Generating a random starting state for a game
+  rand_num_1 = rand rand_num_1 ;
+  rand_num_2 = rand rand_num_1 ;
+  rand_num_3 = rand rand_num_2 ;
+  rand_num_4 = rand rand_num_3 ;
+  rand_num_1_t = rand_num_1 % 10 ;
+  rand_num_2_t = rand_num_2 % 10 ;
+  rand_num_3_t = rand_num_3 % 10 ;
+  rand_num_4_t = rand_num_4 % 10 ;
+  fint rand_num_1_t ;
+  fint rand_num_2_t ;
+  fint rand_num_3_t ;
+  fint rand_num_4_t ;
+  x = rand_num_1_t / 200.0 ;
+  x_dot = rand_num_2_t / 200.0 ;
+  theta = rand_num_3_t / 200.0 ;
+  theta_dot = rand_num_4_t / 200.0 ;
+  x_start = x ;
+  x_dot_start = x_dot ;
+  theta_start = theta ;
+  theta_dot_start = theta_dot ;
+
+  @ Generating a random policy
+  rand_num_1 = rand rand_num_4 ;
+  rand_num_2 = rand rand_num_1 ;
+  rand_num_3 = rand rand_num_2 ;
+  rand_num_4 = rand rand_num_3 ;
+  rand_num_5 = rand rand_num_4 ;
+
+  rand_num_1_t = rand_num_1 % 100 ;
+  rand_num_2_t = rand_num_2 % 100 ;
+  rand_num_3_t = rand_num_3 % 100 ;
+  rand_num_4_t = rand_num_4 % 100 ;
+  rand_num_5_t = rand_num_5 % 100 ;
+  fint rand_num_1_t ;
+  fint rand_num_2_t ;
+  fint rand_num_3_t ;
+  fint rand_num_4_t ;
+  fint rand_num_5_t ;
+  policy_0 = rand_num_1_t / 100.0 ;
+  policy_1 = rand_num_2_t / 100.0 ;
+  policy_2 = rand_num_3_t / 100.0 ;
+  policy_3 = rand_num_4_t / 100.0 ;
+  policy_4 = rand_num_5_t / 100.0 ;
+
+  @ Episode game loop
+  while w2  {
+    costheta = cos theta ;
+    sintheta = sin theta ;
+
+    @ Take an action
+    action_0 = policy_0 * x ;
+    action_1 = policy_1 * x_dot ;
+    action_2 = policy_2 * theta ;
+    action_3 = policy_3 * theta_dot ;
+    action_temp_1 = action_0 + action_1 ;
+    action_temp_2 = action_2 + action_3 ;
+    action_temp_1 = action_temp_1 + action_temp_2 ;
+    action_temp_1 = action_temp_1 + policy_4 ;
+    actionCond = action_temp_1 > 0.0 ;
+
+    if actionCond  {
+        force = force_mag ;
+    } else {
+        force = 0.0 - force_mag ;
+    }
+
+    @ Prepare to simulate action
+    temp1 = polemass_length * theta_dot ;
+    temp2 = theta_dot * sintheta ;
+    temp3 = temp1 * temp2 ;
+    temp4 = force + temp3 ;
+    temp = temp4 / total_mass ;
+    thetaacc1 = gravity * sintheta ;
+    thetaacc2 = costheta * temp ;
+    thetaaccNum = thetaacc1 - thetaacc2 ;
+    thetaacc3 = masspole * costheta ;
+    thetaacc4 = costheta / total_mass ;
+    thetaacc5 = thetaacc3 * thetaacc4 ;
+    thetaacc6 = 1.33 - thetaacc5 ;
+    thetaaccDen = length * thetaacc6 ;
+    thetaacc = thetaaccNum / thetaaccDen ;
+    xacc1 = polemass_length * thetaacc ;
+    xacc2 = xacc1 * costheta ;
+    xacc3 = xacc2 / total_mass ;
+    xacc  = temp - xacc3 ;
+
+
+    @ Simulate action using either symplectic euler or explicit euler
+    if implicit  {
+        tauAcc = tau * xacc ;
+        x_dot = x_dot + tauAcc ;
+        tauXdot = tau * x_dot ;
+        x  = x + tauXdot ;
+        tauThetaAcc = tau * thetaacc ;
+        theta_dot = theta_dot + tauThetaAcc ;
+        tauThetaDot = tau * theta_dot ;
+        temp5 = tau * tauThetaDot ;
+        theta = theta + temp5 ;
+    } else{
+        xp = tau * x_dot ;
+        x_dotp = tau * xacc ;
+        thetap = tau * theta_dot ;
+        theta_dotp = tau * thetaacc ;
+        x  = x + xp ;
+        x_dot = x_dot + x_dotp ;
+        theta = theta + thetap ;
+        theta_dot = theta_dot + theta_dotp ;
+    }
+
+    @ Determine if episode ended
+    negX_threshold = 0.0 - x_threshold ;
+    d1 = x < negX_threshold ;
+    d2 = x > x_threshold ;
+    negTheta_threshold = 0.0 - theta_threshold_radians ;
+    d3 = theta < negTheta_threshold ;
+    d4 = theta > theta_threshold_radians ;
+    d12 = d1 or d2 ;
+    d34 = d3 or d4 ;
+    done = d12 or d34 ;
+
+    counter2 = counter2 + 1.0 ;
+    score = score + 1.0 ;
+
+    w2_1 = counter2 < 700.0 ;
+    w2_2 = not done ;
+    w2 = w2_2 and w2_1 ;
+
+  }
+
+  @ Decide when to stop learning
+  temp_cond_2 = score > max_score ;
+  if temp_cond_2 {
+    max_score = score ;
+  } else{
+
+  }
+  counter1 = counter1 + 1.0 ;
+  w1_1 = score < 250.0 ;
+  w1_2 = counter1 < 2000.0 ;
+  w1 = w1_1 and w1_2 ;
+}
+
+@ Start running after training has been complete
+x = x_start ;
+x_dot = x_dot_start ;
+theta = theta_start ;
+theta_dot = theta_dot_start ;
+
+force_mag = 30.0 ;
+@ GPU Variables
+ivar floorColor = 0 ;
+ivar wheelColor = 18688 ;
+ivar cartColor = 17792 ;
+ivar stickColor = 60416 ;
+ivar skyColor = 65408 ;
+
+@@@@@@    Logic   @@@@@@
+
+@@@ Monitor dimensions
+fvar sw = 399.0 ;
+fvar sh = 299.0 ;
+
+fvar floorHeight = 110.0 ;
+fvar cartWidth = 80.0 ;
+fvar cartHeight = 30.0 ;
+fvar wheelRadius = 8.0 ;
+fvar wheelsSeparation = 20.0 ;
+fvar wheelsSeperationX2 = 40.0 ;
+fvar stickLength = 80.0 ;
+fvar stickWidth = 10.0 ;
+
+fvar floorLevel = sh - floorHeight ;
+fvar wheelCenterLevel = floorLevel - wheelRadius ;
+fvar wheelLevel = wheelCenterLevel - wheelRadius ;
+fvar cartLevel = wheelCenterLevel - cartHeight ;
+
+
+fvar cartHalfWidth = cartWidth / 2.0 ;
+fvar cartLeft = x - cartHalfWidth ;
+fvar cartRight = x + cartHalfWidth ;
+
+fvar stickXS = cos theta ;
+fvar stickYS = sin theta ;
+fvar stickHeight = stickLength * stickYS ;
+fvar stickLevel = cartLevel - stickHeight ;
+fvar stickSlope = stickXS / stickYS ;
+fvar stickX = stickLength * stickXS ;
+stickX = stickX + x ;
+
+fvar dxWheel = 0.0 ;
+fvar firstWheelLeft = 0.0 ;
+fvar firstWheelRight = 0.0 ;
+fvar secondWheelLeft = 0.0 ;
+fvar secondWheelRight = 0.0 ;
+
+@@@ Axes counters
+fvar shc = 0.0 ;
+fvar swc = 0.0 ;
+
+bvar y_loop = 1 ;
+bvar x_end = 1 ;
+bvar inStickLevel = 1 ;
+fvar temp_condition = 0.0 ;
+bvar tempCondition1 = 1 ;
+bvar tempCondition2 = 1 ;
+bvar condition = 1 ;
+fvar wheelRadiusSquared = 0.0 ;
+fvar dyFlipped = 0.0 ;
+fvar dy = 0.0 ;
+fvar dySquared = 0.0 ;
+bvar inWheelLevel = 1 ;
+fvar cartX = 0.0 ;
+fvar drawTheta = 0.0 ;
+
+bvar w3 = 1 ;
+fvar num_frames = 250.0 ;
+fvar counter3 = 0.0 ;
+
+while w3 {
+  @ Update Physics
+  costheta = cos theta ;
+  sintheta = sin theta ;
+
+  @ Take an action
+  action_0 = policy_0 * x ;
+  action_1 = policy_1 * x_dot ;
+  action_2 = policy_2 * theta ;
+  action_3 = policy_3 * theta_dot ;
+  action_temp_1 = action_0 + action_1 ;
+  action_temp_2 = action_2 + action_3 ;
+  action_temp_1 = action_temp_1 + action_temp_2 ;
+  action_temp_1 = action_temp_1 + policy_4 ;
+  actionCond = action_temp_1 > 0.0 ;
+
+  if actionCond  {
+      force = force_mag ;
+  } else {
+      force = 0.0 - force_mag ;
+  }
+
+  @ Prepare to simulate action
+  temp1 = polemass_length * theta_dot ;
+  temp2 = theta_dot * sintheta ;
+  temp3 = temp1 * temp2 ;
+  temp4 = force + temp3 ;
+  temp = temp4 / total_mass ;
+  thetaacc1 = gravity * sintheta ;
+  thetaacc2 = costheta * temp ;
+  thetaaccNum = thetaacc1 - thetaacc2 ;
+  thetaacc3 = masspole * costheta ;
+  thetaacc4 = costheta / total_mass ;
+  thetaacc5 = thetaacc3 * thetaacc4 ;
+  thetaacc6 = 1.33 - thetaacc5 ;
+  thetaaccDen = length * thetaacc6 ;
+  thetaacc = thetaaccNum / thetaaccDen ;
+  xacc1 = polemass_length * thetaacc ;
+  xacc2 = xacc1 * costheta ;
+  xacc3 = xacc2 / total_mass ;
+  xacc  = temp - xacc3 ;
+
+
+  @ Simulate action using either symplectic euler or explicit euler
+  if implicit  {
+      tauAcc = tau * xacc ;
+      x_dot = x_dot + tauAcc ;
+      tauXdot = tau * x_dot ;
+      x  = x + tauXdot ;
+      tauThetaAcc = tau * thetaacc ;
+      theta_dot = theta_dot + tauThetaAcc ;
+      tauThetaDot = tau * theta_dot ;
+      temp5 = tau * tauThetaDot ;
+      theta = theta + temp5 ;
+  } else{
+      xp = tau * x_dot ;
+      x_dotp = tau * xacc ;
+      thetap = tau * theta_dot ;
+      theta_dotp = tau * thetaacc ;
+      x  = x + xp ;
+      x_dot = x_dot + x_dotp ;
+      theta = theta + thetap ;
+      theta_dot = theta_dot + theta_dotp ;
+  }
+
+
+  @ Render Image on Screen
+
+  cartX = x * 83.3 ;
+  cartX = cartX + 200.0 ;
+  drawTheta = 1.22 - theta ;
+
+  cartLeft = cartX - cartHalfWidth ;
+  cartRight = cartX + cartHalfWidth ;
+  stickXS = cos drawTheta ;
+  stickYS = sin drawTheta ;
+  stickHeight = stickLength * stickYS ;
+  stickLevel = cartLevel - stickHeight ;
+  stickSlope = stickXS / stickYS ;
+  stickX = stickLength * stickXS ;
+  stickX = stickX + cartX ;
+  shc = 0.0 ;
+  swc = 0.0 ;
+  y_loop = 1 ;
+  x_end = 1 ;
+  inStickLevel = 1 ;
+  temp_condition = 0.0 ;
+  tempCondition1 = 1 ;
+  tempCondition2 = 1 ;
+  condition = 1 ;
+
+  while y_loop {
+
+    x_end = swc == sw ;
+    if x_end {
+      swc = 0.0 ;
+      shc = shc + 1.0 ;
+      y_loop = shc == sh ;
+      y_loop = not y_loop ;
+
+      inStickLevel = shc > stickLevel ;
+      if inStickLevel {
+        stickX = stickX - stickSlope ;
+      } else {
+
+      }
+
+    } else {
+
+    }
+
+    tempCondition1 = 1 ;
+    tempCondition2 = 1 ;
+    condition = shc > floorLevel ;
+
+    if condition {
+      intf shc ;
+      intf swc ;
+      VRAM_Save shc swc floorColor ;
+      fint shc ;
+      fint swc ;
+    } else {
+      condition = shc > cartLevel ;
+      if condition {
+        condition = shc > wheelCenterLevel ;
+        if condition {
+          intf shc ;
+          intf swc ;
+          VRAM_Save shc swc skyColor ;
+          fint shc ;
+          fint swc ;
+        } else {
+          tempCondition1 = swc > cartLeft ;
+          tempCondition2 = swc < cartRight ;
+          condition = tempCondition1 and tempCondition2 ;
+          if condition {
+            intf shc ;
+            intf swc ;
+            VRAM_Save shc swc cartColor ;
+            fint shc ;
+            fint swc ;
+          } else {
+            intf shc ;
+            intf swc ;
+            VRAM_Save shc swc skyColor ;
+            fint shc ;
+            fint swc ;
+          }
+        }
+      } else {
+        condition = shc > stickLevel ;
+        if condition {
+          fvar stickXWithWidth = stickX + stickWidth ;
+          tempCondition1 = swc > stickX ;
+          tempCondition2 = swc < stickXWithWidth ;
+          condition = tempCondition1 and tempCondition2 ;
+          if condition {
+            intf shc ;
+            intf swc ;
+            VRAM_Save shc swc stickColor ;
+            fint shc ;
+            fint swc ;
+          } else {
+            intf shc ;
+            intf swc ;
+            VRAM_Save shc swc skyColor ;
+            fint shc ;
+            fint swc ;
+          }
+        } else {
+          intf shc ;
+          intf swc ;
+          VRAM_Save shc swc skyColor ;
+          fint shc ;
+          fint swc ;
+        }
+      }
+    }
+
+    swc = swc + 1.0 ;
+  }
+
+  @ Add flying wheels
+  wheelRadiusSquared = 0.0 ;
+  dyFlipped = 0.0 ;
+  dy = 0.0 ;
+  dySquared = 0.0 ;
+  inWheelLevel = 1 ;
+  y_loop = 1 ;
+  shc = wheelLevel ;
+  swc = 0.0 ;
+
+  while y_loop {
+
+    x_end = swc == sw ;
+    if x_end {
+      swc = 0.0 ;
+      shc = shc + 1.0 ;
+      y_loop = shc == floorLevel ;
+      y_loop = not y_loop ;
+
+      wheelRadiusSquared = wheelRadius * wheelRadius ;
+      dyFlipped = shc - wheelLevel ;
+      dy = wheelRadius - dyFlipped ;
+      dySquared = dy * dy ;
+      temp_condition = wheelRadiusSquared - dySquared ;
+      dxWheel = sqrt temp_condition ;
+      firstWheelLeft = cartX - dxWheel ;
+      firstWheelLeft = firstWheelLeft - wheelsSeparation ;
+      secondWheelLeft = firstWheelLeft + wheelsSeperationX2 ;
+      firstWheelRight = firstWheelLeft + dxWheel ;
+      firstWheelRight = firstWheelRight + dxWheel ;
+      secondWheelRight = firstWheelRight + wheelsSeperationX2 ;
+    } else {
+
+    }
+
+    tempCondition1 = swc > firstWheelLeft ;
+    tempCondition2 = swc < firstWheelRight ;
+    condition = tempCondition1 and tempCondition2 ;
+    tempCondition1 = swc > secondWheelLeft ;
+    tempCondition2 = swc < secondWheelRight ;
+    tempCondition1 = tempCondition1 and tempCondition2 ;
+    condition = condition or tempCondition1 ;
+    if condition {
+      intf shc ;
+      intf swc ;
+      VRAM_Save shc swc wheelColor ;
+      fint shc ;
+      fint swc ;
+    } else {
+
+    }
+    swc = swc + 1.0 ;
+  }
+  Idle ;
+  counter3 = counter3 + 1.0 ;
+  w3 = counter3 < num_frames ;
+}

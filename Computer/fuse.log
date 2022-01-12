@@ -1,0 +1,41 @@
+Running: D:\ProgramFiles\14.5\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/computer_tb_isim_beh.exe -prj D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/computer_tb_beh.prj work.computer_tb 
+ISim P.58f (signature 0x7708f090)
+Number of CPUs detected in this system: 12
+Turning on mult-threading, number of parallel sub-compilation jobs: 24 
+Determining compilation order of HDL files
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/FPU_FUNCTIONS.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/ALU.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/DataPath.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/ControlUnit.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/VRAM.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/VGA_Control.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/ROM.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/Ram.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/cpu.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/computer.vhd" into library work
+Parsing VHDL file "D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/computer_tb.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package textio
+Compiling package std_logic_textio
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package fpu_functions
+Compiling architecture behavioral of entity ALU [alu_default]
+Compiling architecture behavioral of entity DataPath [datapath_default]
+Compiling architecture behavioral of entity ControlUnit [controlunit_default]
+Compiling architecture behavioral of entity cpu [cpu_default]
+Compiling architecture behavioral of entity ROM [rom_default]
+Compiling architecture behavioral of entity Ram [ram_default]
+Compiling architecture behavior of entity VGA_Control [\VGA_Control(128,88,800,40,'0',4...]
+Compiling architecture behavioral of entity VRAM [vram_default]
+Compiling architecture behavioral of entity computer [computer_default]
+Compiling architecture computer_tb_arch of entity computer_tb
+Time Resolution for simulation is 1ps.
+Compiled 27 VHDL Units
+Built simulation executable D:/Work/Programming/Projects/Computer Architecture Project/CPU 8/CPU_FINAL_2/CPU_FINAL/computer_tb_isim_beh.exe
+Fuse Memory Usage: 48312 KB
+Fuse CPU Usage: 1062 ms
